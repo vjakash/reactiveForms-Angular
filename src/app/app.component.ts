@@ -95,6 +95,7 @@ export class AppComponent {
 
   onSubmit(){
     if(this.myForm.valid){
+      console.log(this.myForm.value);
       alert("Form Submitted successfully");
     }
     else{

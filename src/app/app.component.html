@@ -92,7 +92,8 @@
         <br>
         <div class="row">
             <div class="col-lg-10 text-right">
-                <input type="submit" value="Submit" class="btn btn-dark">
+                <input type="submit" value="Submit" class="btn btn-dark" *ngIf="this.myForm.valid">
+                <input type="submit" value="Submit" class="btn btn-dark" *ngIf="!this.myForm.valid" disabled>
             </div>
         </div>
     </form>
