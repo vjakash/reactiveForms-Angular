@@ -2,7 +2,6 @@
     <div class="row">
         <div class="col-lg-12 text-center mt-5">
             <h3> Assignment Form</h3>
-            {{myForm.value|json}}
         </div>
     </div>
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
@@ -36,29 +35,56 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-lg-4">
-                <label for="country">Country</label>
-                <!-- <select formControlName="country" class="custom-select" [ngClass]="{'error':!myForm.get('country').valid ,'valid':myForm.get('country').valid}"> -->
-                <select formControlName="country" class="custom-select">
-                  <option *ngFor="let item of countryList" [value]="item">{{countries[item].name}}</option>
-                </select>
-                <!-- <span *ngIf="!myForm.get('country').valid " style="color: red;">Please select a country</span> -->
-            </div>
-            <div class="col-lg-4">
-                <label for="state">state</label>
-                <!-- <select formControlName="state" class="custom-select" [ngClass]="{'error':!myForm.get('state').valid,'valid':myForm.get('state').valid}"> -->
-                <select formControlName="state" class="custom-select">
-                  <option *ngFor="let item of stateList" [value]="item.code">{{item.name}}</option>
-              </select>
-                <!-- <span *ngIf="!myForm.get('state').valid " style="color: red;">Please select a state</span> -->
-            </div>
-            <div class="col-lg-4">
-                <label for="city">city</label>
-                <!-- <select formControlName="city" class="custom-select" [ngClass]="{'error':!myForm.get('city').valid ,'valid':myForm.get('city').valid}"> -->
-                <select formControlName="city" class="custom-select">
-                  <option *ngFor="let item of cityList" [value]="item.code">{{item.name}}</option>
-               </select>
-                <!-- <span *ngIf="!myForm.get('city').valid " style="color: red;">Please select a city</span> -->
+            <div class="col-lg-12">
+                <div *ngFor="let item of myForm.get('address').value; index as i" formArrayName="address">
+                    <div [formGroupName]="i">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label for="country">Country</label>
+                                <!-- <select formControlName="country" class="custom-select" [ngClass]="{'error':!myForm.get('country').valid ,'valid':myForm.get('country').valid}"> -->
+                                <select formControlName="country" class="custom-select">
+                                  <option *ngFor="let item of countryList" [value]="item">{{countries[item].name}}</option>
+                                </select>
+                                <!-- <span *ngIf="!myForm.get('country').valid " style="color: red;">Please select a country</span> -->
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="state">state</label>
+                                <!-- <select formControlName="state" class="custom-select" [ngClass]="{'error':!myForm.get('state').valid,'valid':myForm.get('state').valid}"> -->
+                                <select formControlName="state" class="custom-select">
+                                  <option *ngFor="let item of stateList[i]" [value]="item.code">{{item.name}}</option>
+                              </select>
+                                <!-- <span *ngIf="!myForm.get('state').valid " style="color: red;">Please select a state</span> -->
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="city">city</label>
+                                <!-- <select formControlName="city" class="custom-select" [ngClass]="{'error':!myForm.get('city').valid ,'valid':myForm.get('city').valid}"> -->
+                                <select formControlName="city" class="custom-select">
+                                  <option *ngFor="let item of cityList[i]" [value]="item.code">{{item.name}}</option>
+                               </select>
+                                <!-- <span *ngIf="!myForm.get('city').valid " style="color: red;">Please select a city</span> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label for="add1">Address Line 1</label>
+                                <input type="text" class="form-control" formControlName="add1">
+                                <!-- <input type="text" class="form-control" formControlName="add1" [ngClass]="{'error':!myForm.get('address').get(i|stringCast).get('add1').valid && myForm.get('address').get(i|stringCast).get('add1').dirty,'valid': myForm.get('address').get(i|stringCast).get('add1').valid}"> -->
+                                <!-- <span *ngIf="!myForm.get('address').value[i]['add1'].valid && myForm.get('address').value[i]['add1'].dirty" style="color: red;">Please enter a Address</span> -->
+                            </div>
+                            <!-- <div class="col-lg-4">
+                                <label for="add2">Address Line 2</label>
+                                <input type="text" class="form-control" formControlName="add2" [ngClass]="{'error':!myForm.get('address').get(i|stringCast).get('add2').valid && myForm.get('address').get(i|stringCast).get('add2').dirty,'valid':myForm.get('address').get(i|stringCast).get('add2').valid}">
+                                <span *ngIf="!myForm.get('address').get(i|stringCast).get('add2').valid && myForm.get('address').get(i|stringCast).get('add2').dirty" style="color: red;">Please enter a Address</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="zipCode">Zip Code</label>
+                                <input type="text" class="form-control" formControlName="zipCode" [ngClass]="{'error':!myForm.get('address').get(i|stringCast).get('zipCode').valid && myForm.get('address').get(i|stringCast).get('zipCode').dirty,'valid':myForm.get('address').get(i|stringCast).get('zipCode').valid}">
+                                <span *ngIf="!myForm.get('address').get(i|stringCast).get('zipCode').valid && myForm.get('address').get(i|stringCast).get('zipCode').dirty" style="color: red;">Please enter a ZipCode</span>
+                            </div> -->
+                        </div>
+                        <hr>
+                    </div>
+                </div>
             </div>
         </div>
         <br>
@@ -97,4 +123,5 @@
             </div>
         </div>
     </form>
+    <pre>{{myForm.value|json}}</pre>
 </div>
