@@ -21,15 +21,15 @@
         <div class="row">
             <div class="col-lg-6">
                 <label for="pass">Password</label>
-                <input type="password" class="form-control" formControlName="pass" [ngClass]="{'error':!myForm.get('pass').valid && myForm.get('pass').dirty,'valid':myForm.get('pass').valid}">
-                <span *ngIf="!myForm.get('pass').valid && myForm.get('pass').dirty" style="color: red;">Please enter a Password</span>
+                <input type="password" class="form-control" formControlName="password" [ngClass]="{'error':!myForm.get('password').valid && myForm.get('password').dirty,'valid':myForm.get('password').valid}">
+                <span *ngIf="!myForm.get('password').valid && myForm.get('password').dirty" style="color: red;">Please enter a Password</span>
 
             </div>
             <div class="col-lg-6">
-                <label for="cnfrm_pass">Confirm Password</label>
-                <input type="password" class="form-control" formControlName="cnfrm_pass" [ngClass]="{'error':!myForm.get('cnfrm_pass').valid && myForm.get('cnfrm_pass').dirty,'valid':myForm.get('cnfrm_pass').valid}">
-                <span *ngIf="!myForm.get('cnfrm_pass').valid && myForm.get('cnfrm_pass').dirty" style="color: red;">Please confirm the password</span><br>
-                <span *ngIf="myForm.get('pass').value!=myForm.get('cnfrm_pass').value && myForm.get('cnfrm_pass').dirty" style="color: red;">Password doesn't match</span>
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" class="form-control" formControlName="confirm_password" [ngClass]="{'error':!myForm.get('confirm_password').valid && myForm.get('confirm_password').dirty,'valid':myForm.get('confirm_password').valid}">
+                <span *ngIf="!myForm.get('confirm_password').valid && myForm.get('confirm_password').dirty" style="color: red;">Please confirm the password</span><br>
+                <span *ngIf="myForm.get('pass').value!=myForm.get('confirm_password').value && myForm.get('confirm_password').dirty" style="color: red;">Password doesn't match</span>
 
             </div>
         </div>
@@ -66,15 +66,15 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-4">
-                                <label for="add1">Address Line 1</label>
+                                <label for="addressLine1">Address Line 1</label>
                                 <!-- <input type="text" class="form-control" formControlName="add1"> -->
-                                <input type="text" class="form-control" formControlName="add1" [ngClass]="{'error':!myForm.get('address').get(i|stringCast).get('add1').valid && myForm.get('address').get(i|stringCast).get('add1').dirty,'valid': myForm.get('address').get(i|stringCast).get('add1').valid}">
-                                <span *ngIf="!myForm.get('address').get(i|stringCast).get('add1').valid && myForm.get('address').get(i|stringCast).get('add1').dirty" style="color: red;">Please enter a Address</span>
+                                <input type="text" class="form-control" formControlName="addressLine1" [ngClass]="{'error':!myForm.get('address').get(i|stringCast).get('addressLine1').valid && myForm.get('address').get(i|stringCast).get('addressLine1').dirty,'valid': myForm.get('address').get(i|stringCast).get('addressLine1').valid}">
+                                <span *ngIf="!myForm.get('address').get(i|stringCast).get('addressLine1').valid && myForm.get('address').get(i|stringCast).get('addressLine1').dirty" style="color: red;">Please enter a Address</span>
                             </div>
                             <div class="col-lg-4">
-                                <label for="add2">Address Line 2</label>
-                                <input type="text" class="form-control" formControlName="add2" [ngClass]="{'error':!myForm.get('address').get(i|stringCast).get('add2').valid && myForm.get('address').get(i|stringCast).get('add2').dirty,'valid':myForm.get('address').get(i|stringCast).get('add2').valid}">
-                                <span *ngIf="!myForm.get('address').get(i|stringCast).get('add2').valid && myForm.get('address').get(i|stringCast).get('add2').dirty" style="color: red;">Please enter a Address</span>
+                                <label for="addressLine2">Address Line 2</label>
+                                <input type="text" class="form-control" formControlName="addressLine2" [ngClass]="{'error':!myForm.get('address').get(i|stringCast).get('addressLine2').valid && myForm.get('address').get(i|stringCast).get('addressLine2').dirty,'valid':myForm.get('address').get(i|stringCast).get('addressLine2').valid}">
+                                <span *ngIf="!myForm.get('address').get(i|stringCast).get('addressLine2').valid && myForm.get('address').get(i|stringCast).get('addressLine2').dirty" style="color: red;">Please enter a Address</span>
                             </div>
                             <div class="col-lg-4">
                                 <label for="zipCode">Zip Code</label>

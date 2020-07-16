@@ -101,14 +101,14 @@ export class AppComponent {
     this.myForm = this.fb.group({
       name: this.fb.control('', Validators.required),
       email: this.fb.control('', [Validators.required, Validators.email]),
-      pass: this.fb.control('', Validators.required),
-      cnfrm_pass: this.fb.control('', Validators.required),
+      password: this.fb.control('', Validators.required),
+      confirm_password: this.fb.control('', Validators.required),
       address: this.fb.array([this.fb.group({
         country: this.fb.control('', Validators.required),
         state: this.fb.control('', Validators.required),
         city: this.fb.control('', Validators.required),
-        add1:this.fb.control('', Validators.required),
-        add2:this.fb.control('', Validators.required),
+        addressLine1:this.fb.control('', Validators.required),
+        addressLine2:this.fb.control('', Validators.required),
         zipCode:this.fb.control('', Validators.required)
       }),
       this.fb.group({
